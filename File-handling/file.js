@@ -1,4 +1,8 @@
 const fs = require("fs");
+const os = require("os");    
+
+console.log(os.cpus().length);
+
 
 //Sync call
 // fs.writeFileSync("./file.txt", "Hi from ");
@@ -29,3 +33,25 @@ const fs = require("fs");
 // console.log(fs.statSync("./file.js"));
 //console.log(fs.mkdirSync("docs"));
 
+
+//Blocking vs Non-Blocking
+
+//Blocking...
+// console.log("1");
+// const result = fs.readFileSync("contacts.txt", "utf-8");
+// console.log(result);
+// console.log("2");
+
+//Non-Blocking
+//console.log("1");
+const result = fs.readFile("contacts.txt", "utf-8", (err, res) => {
+    //console.log(res);
+    
+});
+
+//console.log("2");
+//console.log("2");
+
+
+
+ 
