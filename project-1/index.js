@@ -31,7 +31,8 @@ app.get("/users", (req, res) => {
 
 //REST API
 app.get('/api/users', (req, res) => {
-    console.log('I am in get route', req.myUserName);
+    res.setHeader("X-myName", "Debojeet Mitra") // Custom Header
+    // Always add X to custom headers
     return res.json(users)
 })
 
