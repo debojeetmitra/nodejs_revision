@@ -18,7 +18,7 @@ async function handleUpdateUserById(req, res) {
 
 async function handleDeleteUserById(req, res) {
     await User.findByIdAndDelete(req.params.id)
-    return res.json({ status: Success })
+    return res.json({ status: "success" })
 }
 
 async function handleCreateNewUser(req, res) {

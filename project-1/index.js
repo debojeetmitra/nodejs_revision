@@ -1,3 +1,5 @@
+const express = require("express");
+
 const app = express();
 const PORT = 8000;
 
@@ -7,7 +9,9 @@ const { logReqRes} = require("./middlewares")
 const userRouter = require('./routes/user')
 
 //connection
-connectMongoDb('mongodb://127.0.0.1:27017/my-app')
+connectMongoDb('mongodb://127.0.0.1:27017/my-app').then(() => 
+    console.log("MongoDB connected!!")
+)
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -21,7 +25,7 @@ app.use((req, res, next) => {
 
 // Routes
 
-app.use("/user", userRouter);
+app.use("/api/users", userRouter);
 
 
 app.listen(PORT, () => console.log(`Server started at ${PORT}`))
